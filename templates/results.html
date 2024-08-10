@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Scraping Results</title>
+    <style>
+        *
+        {
+            font-family: Arial;
+            padding-left: 5px;
+            background-color: rgb(255, 255, 255);
+        }
+        h1
+        {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 60px;
+            margin-top: 30px;
+        }
+        h2
+        {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        ul,p, .selected-article
+        {
+            display: inline-block;
+            border-width: 2px;
+            border-style: solid;
+            border-color: rgb(26, 50, 168);
+            padding: 20px;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+        p
+        {
+            text-align: center;
+        }
+        .div1, .div2
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .div1 div
+        {
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        .div2
+        {
+            flex-direction: column;
+        }
+        .summary
+        {
+            width: 60%
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Scraper and Article Summarizer</h1>
+    <div class="div1">
+        <div>
+            <h2>Source Website URL</h2>
+            <ul>
+                {% for url in website_urls %}
+                    <li>{{ url }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <h2>Search Keywords</h2>
+            <ul>
+                {% for keyword in search_keywords %}
+                    <li>{{ keyword }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="div2">
+        <div>
+            <h2>Matched Articles</h2>
+            <ul>
+                {% for article_url in matched_articles %}
+                    <li><a href="{{ article_url }}">{{ article_url }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            {% if random_article_url %}
+            <h2>Random Article Selected</h2>
+            <a class="selected-article" href="{{ random_article_url }}">{{ random_article_url }}</a>
+        </div>
+        <div style="text-align: center;">
+            {% if summary %}
+                <h2>Summary</h2>
+                <p class="summary">{{ summary }}</p>
+            {% endif %}
+            {% else %}
+                <p>No matched articles found.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
