@@ -10,7 +10,7 @@ The project created for my WIPRO internship included searching articles from giv
 - Modules - NLTK, BeautifulSoup, Requests
 - Frontend - HTML, CSS
 
-#PreView
+#Preview
 
 ![image](https://github.com/user-attachments/assets/3debf702-cac9-42a1-a67a-e633c2e8642b)
 
